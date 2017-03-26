@@ -58,7 +58,7 @@ module control_state_machine (
                         {4{n_set_alarm_state}}  & set_alarm_state;
 
     //the fourth section 
-    always_ff @(posedge clk) begin : proc_current_state
+    always_ff @(posedge clk or negedge rst_n) begin : proc_current_state
         if(~rst_n) begin
             current_state <= 0;
         end else begin
